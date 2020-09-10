@@ -1,0 +1,36 @@
+﻿@model Vid.ViewModels.CustomersViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@if (!Model.Customers.Any())
+{
+    <p>No Customers yet</p>
+}
+else
+{
+    <table class="table table-bordered table-hover" >
+        <thead>
+            <th>Customers</th>
+        <th>Membership Type</th>
+       
+        </thead>
+        <tbody>
+            @foreach(var customer in Model.Customers)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)
+                    </td>
+                    <td>@customer.MembershipType.Name</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+
+

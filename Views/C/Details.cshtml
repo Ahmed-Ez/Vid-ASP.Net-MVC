@@ -1,0 +1,13 @@
+﻿@model Vid.Models.Customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+@if(Model.BirthDate != null)
+{
+    <p>BirthDate:@Model.BirthDate</p>
+}
+
+

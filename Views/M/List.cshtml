@@ -1,0 +1,37 @@
+﻿@model Vid.ViewModels.MoviesViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+@Html.ActionLink("New Movie", "New", "", new { @class = "btn btn-primary" })
+
+@if (!Model.Movies.Any())
+{
+    <p>No Movies Added</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+        <th>Movie</th>
+        <th>Genre</th>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model.Movies)
+            {
+                <tr>
+                    <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { Id = movie.Id }, null)</td>
+                    <td>@movie.Genre.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<li>
+
+</li>
+
